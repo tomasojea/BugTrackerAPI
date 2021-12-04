@@ -25,9 +25,12 @@ public interface IssueRepository extends CrudRepository<Issue, Integer>{
     @RestResource()
     List<GraphLine> dataLineGraph();
     
-    @Query(value="select new com.bugtracking.app.entity.GraphScatter(s.status,count(s.priority), s.priority) from Issue s where ((s.status like  'Open%') or (s.status like 'Close%') or (s.status like 'InProgress%') and (s.priority like 'Low%') or (s.priority like 'High%') or (s.priority like 'Medium%')) group by s.status, s.priority")
+    @Query(nativeQuery = true, name = "graph_scatter_native")
     @RestResource()
     List<GraphScatter> dataScatterGraph();
+   /* @Query(value="select new com.bugtracking.app.entity.GraphScatter(s.status,count(s.priority), s.priority) from Issue s where ((s.status like  'Open%') or (s.status like 'Close%') or (s.status like 'InProgress%') and (s.priority like 'Low%') or (s.priority like 'High%') or (s.priority like 'Medium%')) group by s.status, s.priority")
+    @RestResource()
+    List<GraphScatter> dataScatterGraph();*/
     
     
     
