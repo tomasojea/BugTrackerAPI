@@ -30,6 +30,7 @@ public class Project {
     private Date modified_on;
     private Date modified_by;
     @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="related_project")
     private List<Issue> issueses;
     
 //    public void add(Issue tempIssue){

@@ -20,7 +20,8 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name = "issue")
 public class Issue {
-    
+
+  
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
     @GenericGenerator(name = "native",strategy = "native")
@@ -30,8 +31,7 @@ public class Issue {
     private Integer identified_by_person_id;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date identified_date;
-//    
-//    private Project related_project;
+    private Long related_project;
     private Integer assigned_to;
     private String status;
     private String priority;
@@ -74,6 +74,16 @@ public class Issue {
     public void setIssue_description(String issue_description) {
         this.issue_description = issue_description;
     }
+    
+    public Long getRelated_project() {
+        return related_project;
+    }
+
+    public void setRelated_project(Long related_project) {
+        this.related_project = related_project;
+    }
+    
+    
     @JsonIgnore
     public int getIdentified_by_person_id() {
         return identified_by_person_id;
