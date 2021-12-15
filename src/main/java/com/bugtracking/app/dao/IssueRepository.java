@@ -6,6 +6,7 @@ import com.bugtracking.app.entity.GraphLine;
 import com.bugtracking.app.entity.GraphScatter;
 import com.bugtracking.app.entity.Issue;
 import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 //
 @RepositoryRestResource()
 @CrossOrigin()
-public interface IssueRepository extends CrudRepository<Issue, Integer>{
+public interface IssueRepository extends JpaRepository<Issue, Integer>{
     
     @Query(value="select new com.bugtracking.app.entity.GraphData(count(priority), priority) from Issue where priority is not null  group by priority")
     @RestResource()

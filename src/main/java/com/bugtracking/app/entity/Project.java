@@ -1,8 +1,11 @@
 package com.bugtracking.app.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.GeneratedValue;
@@ -26,14 +29,22 @@ public class Project {
     private Date created_by;
     private Date modified_on;
     private Date modified_by;
-    @OneToMany(mappedBy = "related_project",cascade=CascadeType.ALL)
-    private Set<Issue> issueses;
-
-    public Set<Issue> getIssues() {
+    @OneToMany(cascade=CascadeType.ALL)
+    private List<Issue> issueses;
+    
+//    public void add(Issue tempIssue){
+//        if(issueses == null){
+//            issueses = new ArrayList<>();
+//        }
+//        issueses.add(tempIssue);
+//        tempIssue.setRelated_project(this);
+//    }
+    
+    public List<Issue> getIssues() {
         return issueses;
     }
 
-    public void setIssues(Set<Issue> issues) {
+    public void setIssues(List<Issue> issues) {
         this.issueses = issues;
     }
 

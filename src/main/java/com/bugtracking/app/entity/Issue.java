@@ -1,33 +1,37 @@
 package com.bugtracking.app.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Column;
+
+
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "issue")
 public class Issue {
     
-    
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
+    @GenericGenerator(name = "native",strategy = "native")
     private int issue_id;
     private String issue_summary;
     private String issue_description;
     private Integer identified_by_person_id;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date identified_date;
-    @ManyToOne
-    @JoinColumn(name = "related_project")
-    private Project related_project;
+//    
+//    private Project related_project;
     private Integer assigned_to;
     private String status;
     private String priority;
@@ -87,14 +91,7 @@ public class Issue {
         this.identified_date = identified_date;
     }
 
-    public Project getRelated_project() {
-        return related_project;
-    }
-
-    public void setRelated_project(Project related_project) {
-        this.related_project = related_project;
-    }
-
+   
     public int getAssigned_to() {
         return assigned_to;
     }
