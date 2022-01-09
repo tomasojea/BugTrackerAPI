@@ -1,11 +1,12 @@
-com\bugtracking\app\entity\GraphData.class
 com\bugtracking\app\AppApplication.class
-com\bugtracking\app\dao\PeopleRepository.class
-com\bugtracking\app\entity\Issue.class
 com\bugtracking\app\dao\IssueRepository.class
 com\bugtracking\app\entity\GraphScatter.class
-com\bugtracking\app\dao\ProjectRepository.class
 com\bugtracking\app\entity\People.class
+com\bugtracking\app\entity\GraphData.class
+com\bugtracking\app\dao\PeopleRepository.class
+com\bugtracking\app\entity\Issue.class
+com\bugtracking\app\dao\ProjectRepository.class
 com\bugtracking\app\entity\Project.class
 com\bugtracking\app\entity\GraphLine.class
 com\bugtracking\app\entity\GraphBar.class
+.netbeans_automatic_build

@@ -3,6 +3,7 @@ package com.bugtracking.app.entity;
 import java.util.Date;
 import java.util.Set;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,12 +12,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "people")
 public class People {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
+    @GenericGenerator(name = "native",strategy = "native")
     private int person_id;
     private String person_name;
     private String person_email;
